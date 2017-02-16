@@ -36,4 +36,5 @@ angular
   .config(['slickCarouselConfig', function (slickCarouselConfig) {
     slickCarouselConfig.dots = true;
     slickCarouselConfig.autoplay = false;
-  }]);
+  }])
+  .value('signalRConfig', 'http://localhost:14970/');

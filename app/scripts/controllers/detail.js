@@ -16,7 +16,7 @@ angular.module('magicmirrorApp')
     var productoId = $location.search().id;
 
     productService.getOne(productoId).then(function(product){
-      $scope.product = product
+      $scope.product = product;
       $scope.$apply();
-    })
+    });
   });
