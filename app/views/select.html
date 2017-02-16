@@ -1,1 +1,8 @@
 <p>This is the Select view.</p>
+
+
+<div ng-repeat="product in products">
+  <button ng-click="select(product)"> Anda a otro lado! Numero de producto: {{product.id}}</button>
+</div>
+
+{{products}}

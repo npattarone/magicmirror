@@ -1,7 +1,7 @@
-<p>This is the Detail view.</p>
+<p>El detalle del producto id: {{product.id}}</p>
 
 <slick infinite="true" slides-to-show="3" slides-to-scroll="3" style="border: 1px black;">
-  <div class="slider" ng-repeat="i in number" style="height: 100px;">
-    <div class=""> {{i}} </div>
+  <div class="slider" ng-repeat="related in product.related" style="height: 100px;">
+    <div class=""> {{related.id}} </div>
   </div>
 </slick>

@@ -19,18 +19,15 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'//,
-        //controllerAs: 'main'
+        controller: 'MainCtrl'
       })
       .when('/select', {
         templateUrl: 'views/select.html',
-        controller: 'SelectCtrl'//,
-        //controllerAs: 'detail'
+        controller: 'SelectCtrl'
       })
       .when('/detail', {
         templateUrl: 'views/detail.html',
-        controller: 'DetailCtrl'//,
-        //controllerAs: 'select'
+        controller: 'DetailCtrl'
       })
       .otherwise({
         redirectTo: '/'
@@ -39,4 +36,4 @@ angular
   .config(['slickCarouselConfig', function (slickCarouselConfig) {
     slickCarouselConfig.dots = true;
     slickCarouselConfig.autoplay = false;
-  }])
+  }]);

@@ -8,6 +8,24 @@
  * Service in the magicmirrorApp.
  */
 angular.module('magicmirrorApp')
-  .service('products', function () {
-    // AngularJS will instantiate a singleton by calling "new" on this function
+  .service('productService', function () {
+    return {
+      getAll : function(){
+        return Promise.resolve(
+          [
+            { id: 1},
+            { id: 2},
+            { id: 3}
+          ]
+        );
+      },
+      getOne : function(id){
+        return Promise.resolve(
+          {
+            id : id,
+            related :  [ { id : 5 } , { id: 6 }, { id: 7 },{ id: 8 }, { id: 9 } ]
+          }
+        );
+      }
+    };
   });
