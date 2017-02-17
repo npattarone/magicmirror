@@ -7,7 +7,8 @@
     "angular-resource": "^1.4.0",
     "angular-route": "^1.4.0",
     "angular-touch": "^1.4.0",
-    "angular-slick-carousel": "^3.1.7"
+    "angular-slick-carousel": "^3.1.7",
+    "signalr": "2.2.1"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0"

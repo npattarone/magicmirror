@@ -8,22 +8,20 @@
  * Controller of the magicmirrorApp
  */
 angular.module('magicmirrorApp')
-.controller('signalRController', ['$scope', 'backendHubProxy',
-  function ($scope, backendHubProxy) {
+.controller('signalRController', function ($scope, backendHubProxy) {
     console.log('trying to connect to service');
-    var readerDataHub = backendHubProxy(backendHubProxy.defaultServer, 'ReaderHub');
+    var readerDataHub = backendHubProxy(backendHubProxy.defaultServer, 'readerHub');
 
     console.log('connected to service');
-    $scope.readerProductDescription = "";
-    $scope.readerProductCode = "";
 
-    readerDataHub.on('broadcast', function (data) {
-      console.log('broadcast: ' + data);
+    readerDataHub.on('broadcastPerformance', function (data) {
+      console.log("Broadcasted!");
+      console.log(data);
 
-      data.forEach(function (readerInfo, $scope) {
+      data.forEach(function (readerInfo) {
             $scope.readerProductDescription = readerInfo.description;
             $scope.readerProductCode = readerInfo.code;
         });
     });
   }
-]);
+);
