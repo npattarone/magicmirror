@@ -18,10 +18,7 @@ angular.module('magicmirrorApp')
       console.log("Broadcasted!");
       console.log(data);
 
-      data.forEach(function (readerInfo) {
-            $scope.readerProductDescription = readerInfo.description;
-            $scope.readerProductCode = readerInfo.code;
-        });
+      $scope.productReaded = data;
     });
   }
 );

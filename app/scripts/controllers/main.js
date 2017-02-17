@@ -9,5 +9,5 @@
  */
 angular.module('magicmirrorApp')
   .controller('MainCtrl', function () {
-    console.log('mail page!')
+    console.log('main page!')
   });
