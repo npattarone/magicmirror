@@ -18,8 +18,6 @@ angular.module('magicmirrorApp')
       $scope.relatedProduct = product.data.RelatedProductModel;
       $scope.defaultImage = product.data.Colors[0].ImagesBase64[0];
 
-      console.log($scope.defaultImage);
-
       $scope.$apply();
     });
 
@@ -27,8 +25,11 @@ angular.module('magicmirrorApp')
       console.log(id);
       console.log('El usuario seleccion un producto.... redirect');
 
-      if(id !== undefined) {
-          $location.path('/detail').search({ id: id});
-        }
+      $location.path('/detail').search({ id: id});
     };
+
+    $scope.selectImage = function(image) {
+      $scope.defaultImage = image;
+    };
+
   });

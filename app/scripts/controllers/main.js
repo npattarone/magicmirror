@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the magicmirrorApp
  */
-var app = angular.module('magicmirrorApp')
+var app = angular.module('magicmirrorApp');
 app.controller('MainCtrl', function ($scope, $location, backendHubProxy) {
   console.log('main page!');
 
@@ -15,7 +15,10 @@ app.controller('MainCtrl', function ($scope, $location, backendHubProxy) {
     console.log("Received Data");
     console.log(data);
 
-    $location.path('/select');
+    $scope.productReaded = data[0];
+    $location.path('/detail').search({ id: data[0].id});
+
+    //$location.path('/select');
   });
 
   /*$scope.$on('$destroy', function() {

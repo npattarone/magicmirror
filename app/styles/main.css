@@ -7,6 +7,7 @@
 
 body {
   padding: 0;
+    font-family: 'Lato', sans-serif;
 }
 
 a:visited {
@@ -23,6 +24,20 @@ a.slider:hover {
   color: black;
 }
 
+.mm-button {
+  background-color: lightgray;
+  color: white;
+  border: none;
+  display: inline-block;
+  margin: 0 5px;
+  font-family: "Lato", sans-serif;
+  font-size: 16.5px;
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 0px;
+  cursor: pointer;
+  outline: 0;
+}
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
@@ -47,14 +62,12 @@ a.slider:hover {
 
 .header-title-medium {
   color: white;
-  font-family: 'Lato', sans-serif;
   font-size: 30px;
   text-align: center;
 }
 
 .header-title-large {
   color: white;
-  font-family: 'Lato', sans-serif;
   font-size: 38px;
   font-weight: bold;
   text-align: center;
@@ -73,12 +86,17 @@ a.slider:hover {
     font-size: 20px;
 }
 
-.mm-icon-black {
-    color: black;
+.mm-price {
+  color: lightgray;
+  font-weight: bolder;
 }
 
-.mm-underlined {
-    border-bottom: black solid 1px;
+.mm-code {
+  color: lightgray;
+}
+
+.mm-icon-black {
+    color: black;
 }
 
 .mm-image {

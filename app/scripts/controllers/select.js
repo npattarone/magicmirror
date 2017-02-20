@@ -15,6 +15,7 @@ angular.module('magicmirrorApp')
       console.log("Received Data");
       console.log(data);
       $scope.productReaded = data;
+
       $scope.$apply();
     });
 
