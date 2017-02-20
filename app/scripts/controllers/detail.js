@@ -11,12 +11,24 @@ angular.module('magicmirrorApp')
   .controller('DetailCtrl', function ($scope, productService, $location) {
     console.log('Detalle de un producto!');
 
-    //$scope.number = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
     var productoId = $location.search().id;
 
     productService.getOne(productoId).then(function(product){
-      $scope.product = product;
+      $scope.product = product.data;
+      $scope.relatedProduct = product.data.RelatedProductModel;
+      $scope.defaultImage = product.data.Colors[0].ImagesBase64[0];
+
+      console.log($scope.defaultImage);
+
       $scope.$apply();
     });
+
+    $scope.select = function(id){
+      console.log(id);
+      console.log('El usuario seleccion un producto.... redirect');
+
+      if(id !== undefined) {
+          $location.path('/detail').search({ id: id});
+        }
+    };
   });

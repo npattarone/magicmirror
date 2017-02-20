@@ -15,17 +15,18 @@ angular.module('magicmirrorApp')
       console.log("Received Data");
       console.log(data);
       $scope.productReaded = data;
+      $scope.$apply();
     });
 
-    $scope.$on('$destroy', function() {
-         // Do your cleanup here or call a function that does
-         // des suscribirse de los eventos del reader.
-     });
+    /*$scope.$on('$destroy', function() {
+      broadcast();
+    });*/
 
-    $scope.select = function(product){
-      console.log(product);
+    $scope.select = function(id){
+      console.log(id);
       console.log('El usuario seleccion un producto.... redirect');
-      $location.path('/detail').search({ id: product.id});
+
+      $location.path('/detail').search({ id: id});
     };
 
   });
