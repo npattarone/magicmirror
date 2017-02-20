@@ -10,11 +10,9 @@
 angular.module('magicmirrorApp')
   .factory('backendHubProxy', ['$rootScope', 'signalRConfig', function ($rootScope, signalRConfig) {
 
-    function backendFactory(serverUrl, hubName) {
-        var connection = $.hubConnection(signalRConfig);
-        //connection.url = signalRConfig;
-
-        var proxy = connection.createHubProxy(hubName);
+    function backendFactory() {
+        var connection = $.hubConnection(signalRConfig.url);
+        var proxy = connection.createHubProxy(signalRConfig.hubName);
 
         connection.start({jsonp:true}).done(function () { });
 

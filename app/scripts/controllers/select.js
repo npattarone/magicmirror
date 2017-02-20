@@ -8,15 +8,19 @@
  * Controller of the magicmirrorApp
  */
 angular.module('magicmirrorApp')
-  .controller('SelectCtrl', function ($scope, $location, productService) {
+  .controller('SelectCtrl', function ($scope, $location, backendHubProxy) {
     console.log('Cargo el controlador de Seleccion de Productos');
 
-    productService.getAll().then(function(products){
-      console.log('Llame al servicio de la API');
-      console.log(products);
-      $scope.products = products;
-      $scope.$apply();
+    backendHubProxy().on('broadcastPerformance', function (data) {
+      console.log("Received Data");
+      console.log(data);
+      $scope.productReaded = data;
     });
+
+    $scope.$on('$destroy', function() {
+         // Do your cleanup here or call a function that does
+         // des suscribirse de los eventos del reader.
+     });
 
     $scope.select = function(product){
       console.log(product);
