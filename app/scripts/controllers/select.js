@@ -12,16 +12,8 @@ angular.module('magicmirrorApp')
     console.log('Cargo el controlador de Seleccion de Productos');
 
     backendHubProxy().on('broadcastPerformance', function (data) {
-      console.log("Received Data");
-      console.log(data);
       $scope.productReaded = data;
-
-      $scope.$apply();
     });
-
-    /*$scope.$on('$destroy', function() {
-      broadcast();
-    });*/
 
     $scope.select = function(id){
       console.log(id);

@@ -13,7 +13,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngTouch',
-    'slickCarousel'
+    'slick',
+    'ngAnimate'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -33,8 +34,5 @@ angular
         redirectTo: '/'
       });
   })
-  .config(['slickCarouselConfig', function (slickCarouselConfig) {
-    slickCarouselConfig.dots = true;
-    slickCarouselConfig.autoplay = false;
-  }])
-  .value('signalRConfig', { url: 'http://localhost:14970/signalr', hubName: 'readerHub'});
+  .value('signalRConfig', { url: 'http://localhost:30000/signalr', hubName: 'notificationHub'});
+  //.value('signalRConfig', { url: 'http://localhost:14970/signalr', hubName: 'readerHub'});

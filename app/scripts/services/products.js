@@ -19,16 +19,11 @@ angular.module('magicmirrorApp')
           ]
         );
       },
-      getOne : function(id){
-        return Promise.resolve(
-          $http.get('http://localhost:23477/api/Product/Get/' + id)
-        );
-        /*return Promise.resolve(
-          {
-            id : id,
-            related :  [ { id : 5 } , { id: 6 }, { id: 7 },{ id: 8 }, { id: 9 } ]
-          }
-        );*/
+      getIdProductByEpc : function(epc){
+        return $http.get('http://localhost:23477/api/Product/GetIdProductByEpc/' + epc);
+      },
+      getById : function(id){
+        return $http.get('http://localhost:23477/api/Product/Get/' + id);
       }
     };
   });

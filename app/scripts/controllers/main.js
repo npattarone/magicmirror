@@ -8,20 +8,15 @@
  * Controller of the magicmirrorApp
  */
 var app = angular.module('magicmirrorApp');
-app.controller('MainCtrl', function ($scope, $location, backendHubProxy) {
+app.controller('MainCtrl', function ($scope, $location, backendHubProxy, productService) {
   console.log('main page!');
 
-  backendHubProxy().on('broadcastPerformance', function (data) {
-    console.log("Received Data");
-    console.log(data);
+  backendHubProxy().on('notify', function (transaction, checkpointCode, e, params) {
+  //backendHubProxy().on('broadcastPerformance', function (transaction, checkpointCode, e, params) {
+    productService.getIdProductByEpc(params.Epc).then(function(response){
+        $location.path('/detail').search({ id: response.data });
+    });
 
-    $scope.productReaded = data[0];
-    $location.path('/detail').search({ id: data[0].id});
-
-    //$location.path('/select');
   });
 
-  /*$scope.$on('$destroy', function() {
-    broadcast();
-  });*/
 });

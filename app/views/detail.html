@@ -2,61 +2,62 @@
   <br />
   <br />
 
-  <div class="row">
+  <div class="row" style="margin-top:100px; margin-left: 50px;margin-right: 50px;">
 
       <div class="col-md-3 text-center">
-          <div ng-repeat="color in product.Colors | filter: color.Default">
 
-              <div class="row" ng-repeat="image in color.ImagesBase64 ">
+              <div class="row" ng-repeat="image in colorDefault.ImagesBase64 ">
                   <img ng-src="{{ image.Base64 }}" ng-click="selectImage(image)"
-                    class="img-responsive" />
+                    class="img-responsive" style="margin: auto;width:70%" />
                   <br />
               </div>
-
-          </div>
       </div>
 
-      <div class="col-md-4">
-          <img ng-src="{{ defaultImage.Base64 }}" class="img-responsive" style="width: 100%;"/>
+      <div class="col-md-6">
+          <img ng-src="{{ defaultImage.Base64 }}" class="img-responsive" style="margin:auto;width:100%;image-rendering: auto;" />
       </div>
 
-      <div class="col-md-5">
+      <div class="col-md-3">
           <div class="row">
               <div class="col-md-12">
-                  <h3 style="font-weight: bold;">
+                  <h2 style="font-weight: bold;">
                       {{ product.Description | uppercase }}
-                  </h3>
-                  <h5 class="mm-code">Cod. {{ product.ExternalCode }} </h5>
+                  </h2>
+                  <h3 class="mm-code">Cod. {{ product.ExternalCode }} </h3>
               </div>
           </div>
+
+          <br />
 
           <div class="row">
             <div class="col-md-12">
-              <h2 class="mm-price">$ {{ product.Price }},00</h2>
+              <h1 class="mm-price">$ {{ product.Price }},00</h1>
             </div>
           </div>
 
+          <br />
+
           <div class="row">
-              <div class="col-md-12">
-                  <h5>COLOR</h5>
-                  <div class="btn-group bootstrap-select fit-width">
-                      <div class="btn-group" id="Colores">
+            <div class="col-md-12">
+              <h4>COLOR</h4>
+              <div class="btn-group bootstrap-select fit-width">
+                  <div class="btn-group" id="Colores">
 
-                          <button ng-repeat="color in product.Colors" type="button" class="btn btn-default btn-lg" title="{{ color.Description }}">
-                              <i class='glyphicon glyphicon-tint' style='color: {{ color.Style }};'></i>
-                          </button>
-
-                      </div>
-
+                    <button ng-repeat="color in product.Colors" type="button"
+                      class="btn btn-default" title="{{ color.Description }}" style="width: 30%;">
+                        <img ng-src="{{ color.ImagesBase64[0].Base64 }}" ng-click="select(color.ImagesBase64[0].IdProduct)"
+                          class="img-responsive" />
+                    </button>
                   </div>
               </div>
             </div>
+          </div>
 
             <br/>
 
             <div class="row">
               <div class="col-md-12">
-                  <h5>TALLE</h5>
+                  <h4>TALLE</h4>
                   <div class="btn-group bootstrap-select fit-width">
                       <div class="btn-group" id="Talles" ng-model="product">
 
@@ -73,43 +74,52 @@
 
           <div class="row">
               <div class="col-md-12">
-                  <h5>CANTIDAD</h5>
-                  <div class="btn-group bootstrap-select fit-width">
-                      <div class="btn-group" id="Cantidad">
-                          <button type="button" class="btn btn-default btn-lg">1</button>
-                          <button type="button" class="btn btn-default btn-lg">2</button>
-                      </div>
-                  </div>
+                  <h4>STOCK</h4>
+                  <h4><strong> {{ product.Stock }} </strong></h4>
                 </div>
             </div>
 
             <br />
+            <br />
 
             <div class="row">
                 <div class="col-md-12">
-                  <h6>?Necesitás otro color o talle?</h6>
+                  <h3>Necesitás otro color o talle?</h3>
                   <button type="button" class="btn btn-default btn-lg mm-button">TRAEMELO!</button>
                 </div>
             </div>
       </div>
-  </div>
 
-  <br />
-  <br />
-  <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
 
-  <div class="row">
-      <div class="col-md-12">
-          <div class="row">
-              <div class="col-md-4 text-center">___________________________________________________</div>
-              <div class="col-md-4 mm-title text-center">COMBINALO</div>
-              <div class="col-md-4 text-center">___________________________________________________</div>
+      <div class="row">
+          <div class="col-md-12" style="margin-top: 5%;">
+              <div class="row">
+                  <div class="col-md-4 text-center mm-underlined"></div>
+                  <div class="col-md-4 mm-title text-center">COMBINALO</div>
+                  <div class="col-md-4 text-center mm-underlined"></div>
+              </div>
           </div>
       </div>
-  </div>
+      <br />
 
-  <slick slides-to-show="2" slides-to-scroll="1" >
-    <div ng-repeat="related in relatedProduct">
-      <h3><a class="slider" ng-click="select(related.Id)"> {{ related.Description }} </a></h3>
-    </div>
-  </slick>
+      <slick slides-to-show="2" slides-to-scroll="1" init-onload=true data="relatedProducts">
+    <!--div class="row"-->
+      <!--div class="col-md-4 text-center" ng-repeat="related in relatedProducts"-->
+        <div ng-repeat="related in relatedProducts" class="text-center">
+          <img ng-src="{{related.DefaultImageBase64}}" ng-click="select(related.Id)" style="margin:auto; height: 400px;"/>
+          <h4>
+            <p>
+              {{ related.Description }}
+            </p>
+            ${{ related.Price }},00
+          </h4>
+        </div>
+      <!--/div-->
+    <!--/div-->
+      </slick>
+  </div>

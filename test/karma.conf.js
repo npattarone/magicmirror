@@ -26,9 +26,10 @@ module.exports = function(config) {
       'bower_components/angular-resource/angular-resource.js',
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-touch/angular-touch.js',
-      'bower_components/slick-carousel/slick/slick.js',
-      'bower_components/angular-slick-carousel/dist/angular-slick.js',
       'bower_components/signalr/jquery.signalR.js',
+      'bower_components/slick-carousel/slick/slick.js',
+      'bower_components/angular-slick/dist/slick.js',
+      'bower_components/angular-animate/angular-animate.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

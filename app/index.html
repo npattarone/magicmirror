@@ -21,19 +21,19 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="magicmirrorApp">
+  <body ng-app="magicmirrorApp" >
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
     <div class="header">
-      <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar navbar-inverse navbar-fixed-top" style="min-height:100px;padding-top:25px;">
           <div class="col-md-4 header-title-medium">
               KEVINGSTON
           </div>
           <div class="col-md-4 header-title-large">
-            <a ng-href="#!/select">MAGIC MIRROR</a>
+            MAGIC MIRROR
           </div>
           <div class="col-md-4 header-title-medium">
               SMART RETAIL
@@ -41,15 +41,19 @@
         </div>
     </div>
 
-    <div class="container" style="max-width: 90%;">
-    <ng-view></ng-view>
-    </div>
+<br />
+<br />
+<br />
 
-    <div class="footer" style="background-color: black;color: white;">
+  <div class="container" style="max-width: 90%;margin: auto;">
+    <ng-view class="fade" ></ng-view>
+  </div>
+
+    <!--div class="footer" style="background-color: black;color: white;">
       <div class="container">
         <p><span class="glyphicon glyphicon-heart"></span> from Telectrónica team</p>
       </div>
-    </div>
+    </div->
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -71,9 +75,10 @@
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/slick-carousel/slick/slick.js"></script>
-    <script src="bower_components/angular-slick-carousel/dist/angular-slick.js"></script>
     <script src="bower_components/signalr/jquery.signalR.js"></script>
+    <script src="bower_components/slick-carousel/slick/slick.js"></script>
+    <script src="bower_components/angular-slick/dist/slick.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -81,7 +86,6 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/services/products.js"></script>
-        <script src="scripts/controllers/select.js"></script>
         <script src="scripts/controllers/detail.js"></script>
         <script src="scripts/services/backendHubProxy.js"></script>
         <!-- endbuild -->

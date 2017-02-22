@@ -19,10 +19,10 @@ angular.module('magicmirrorApp')
         return {
 
             on: function (eventName, callback) {
-                proxy.on(eventName, function (result) {
+                proxy.on(eventName, function (transaction, checkpointCode, e, params) {
                     $rootScope.$apply(function () {
                         if (callback) {
-                            callback(result);
+                            callback(transaction, checkpointCode, e, params);
                         }
                     });
                 });
